@@ -101,7 +101,7 @@ Configuration via environment variables
 <a id="localrun"></a>
 
 ## Running tests locally
-To run tests locally from the IDE or from the terminal, run the following command
+To run tests locally from the IDE or from the terminal, run the following command (Before running these tests make sure you have an active emulator with Google pixel 4 (Android 11.0), necessary Android system variables, active Appium server)
 
 ```
 gradle clean test
