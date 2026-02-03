@@ -4,6 +4,7 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
+import wikipages.components.ActivityTab;
 import wikipages.components.MoreTab;
 import wikipages.components.SavedTab;
 
@@ -18,7 +19,8 @@ public class MainScreen {
     realSearchField = $(id("org.wikipedia.alpha:id/search_src_text")),
     titleArticle = $(id("pcs-edit-section-title-description")),
     savedTab = $(id("org.wikipedia.alpha:id/nav_tab_reading_lists")),
-    moreTab = $(AppiumBy.id("org.wikipedia.alpha:id/nav_tab_more"));
+    moreTab = $(AppiumBy.id("org.wikipedia.alpha:id/nav_tab_more")),
+    activityTab = $(AppiumBy.xpath("(//android.widget.LinearLayout[@resource-id='org.wikipedia:id/navigation_bar_item_content_container'])[4]"));
 
     private final ElementsCollection searchResults = $$(AppiumBy.xpath("//*[contains(@text, 'NASCAR') or contains(@text, 'Nascar')]"));
 
@@ -68,6 +70,11 @@ public class MainScreen {
     public MoreTab clickOnMoreTab() {
         moreTab.click();
         return new MoreTab();
+    }
+
+    public ActivityTab clickOnActivityTab() {
+        moreTab.click();
+        return new ActivityTab();
     }
 }
 

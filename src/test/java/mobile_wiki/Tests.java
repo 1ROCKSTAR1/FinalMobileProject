@@ -30,7 +30,7 @@ public class Tests extends BaseTest {
     @Test
     @Feature("Tabs")
     @DisplayName("Check the header of the tab 'saved' ")
-    void savedTabTestPOM() {
+    void savedTabTest() {
         back();
         String expectedHeader = mainScreen
                 .clickOnSavedTab()
@@ -42,7 +42,7 @@ public class Tests extends BaseTest {
     @Test
     @Feature("Tabs")
     @DisplayName("Check the header of the tab 'settings' ")
-    void savedSettingsTestPOM() {
+    void savedSettingsTest() {
         back();
         String expectedHeader = mainScreen
                 .clickOnMoreTab()
@@ -55,7 +55,7 @@ public class Tests extends BaseTest {
     @Test
     @Feature("Settings switches")
     @DisplayName("Check switch 'show link previews' ")
-    void showPreviewTestPOM() {
+    void showPreviewTest() {
         back();
         boolean expectedShowPreviewCondition = mainScreen
                 .clickOnMoreTab()
@@ -68,7 +68,7 @@ public class Tests extends BaseTest {
     @Test
     @Feature("Settings switches")
     @DisplayName("Check switch 'prefer offline' ")
-    void preferOfflineTestPOM() {
+    void preferOfflineTest() {
         back();
         boolean expectedPreferOfflineCondition = mainScreen
                 .clickOnMoreTab()
@@ -77,5 +77,31 @@ public class Tests extends BaseTest {
                 .checkPreferOfflineIsFalse();
 
         Assertions.assertTrue(expectedPreferOfflineCondition);
+    }
+
+    @Test
+    @Feature("Tabs")
+    @DisplayName("Check the header of the tab 'activity' ")
+    void activityTest() {
+        back();
+        String expectedHeader = mainScreen
+                .clickOnActivityTab()
+                .getActivityHeader();
+
+        Assertions.assertEquals("Activity",expectedHeader);
+    }
+
+    @Test
+    @Feature("Tabs")
+    @DisplayName("Check the header on activity custom screen")
+    void activityCustomTest() {
+        back();
+        String expectedHeader = mainScreen
+                .clickOnActivityTab()
+                .goToInnerActivityTab()
+                .clickOnCusomizeOption()
+                .getCustomizeHeaderText();
+
+        Assertions.assertEquals("Customize",expectedHeader);
     }
 }
