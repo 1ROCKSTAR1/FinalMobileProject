@@ -109,7 +109,7 @@ gradle clean test
 
 <a id="report"></a>
 
-## [Allure report](https://jenkins.autotests.cloud/job/%D0%A138_Aastri_Final_Project/allure/)
+## Allure report
 ### Graphics
 
 <p align="center">
