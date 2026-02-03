@@ -40,10 +40,7 @@
 - [Technologies and tools](#tools)
 - [Test coverage](#cases)
 - [Local run tests](#localrun)
-- [Jenkins run tests](#remoterun)
 - [Allure report](#report)
-- [Telegram notifications](#telegram)
-- [Run tests video example from Selenoid](#video)
 
 📚 Project's description
 
