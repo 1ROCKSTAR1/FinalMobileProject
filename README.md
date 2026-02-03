@@ -85,8 +85,8 @@ Configuration via environment variables
 
 <a id="cases"></a>
 
-## 📄 Test Coverage:
-### 📱 Mobile
+## 📄📱 Test Coverage:
+
 ◾ Check search results in the searchline
 
 ◾ Check open the tab Saved
@@ -101,7 +101,7 @@ Configuration via environment variables
 <a id="localrun"></a>
 
 ## Running tests locally
-To run WEB tests locally from the IDE or from the terminal, run the following command
+To run tests locally from the IDE or from the terminal, run the following command
 
 ```
 gradle clean test
