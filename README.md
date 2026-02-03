@@ -97,6 +97,10 @@ Configuration via environment variables
 
 ◾ Check switch 'prefer offline' 
 
+◾ Check the header of the tab 'activity' 
+
+◾ Check the header on activity custom screen
+
 
 <a id="localrun"></a>
 
