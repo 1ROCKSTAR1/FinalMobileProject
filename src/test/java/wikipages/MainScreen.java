@@ -20,7 +20,7 @@ public class MainScreen {
     titleArticle = $(id("pcs-edit-section-title-description")),
     savedTab = $(id("org.wikipedia.alpha:id/nav_tab_reading_lists")),
     moreTab = $(AppiumBy.id("org.wikipedia.alpha:id/nav_tab_more")),
-    activityTab = $(AppiumBy.xpath("(//android.widget.LinearLayout[@resource-id='org.wikipedia:id/navigation_bar_item_content_container'])[4]"));
+    activityTab = $(AppiumBy.accessibilityId("Activity"));
 
     private final ElementsCollection searchResults = $$(AppiumBy.xpath("//*[contains(@text, 'NASCAR') or contains(@text, 'Nascar')]"));
 
@@ -73,7 +73,7 @@ public class MainScreen {
     }
 
     public ActivityTab clickOnActivityTab() {
-        moreTab.click();
+        activityTab.click();
         return new ActivityTab();
     }
 }

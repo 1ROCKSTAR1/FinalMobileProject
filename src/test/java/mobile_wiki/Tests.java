@@ -1,10 +1,8 @@
 package mobile_wiki;
 
 import io.qameta.allure.Feature;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import wikipages.ActivityCustomizeScreen;
 import wikipages.MainScreen;
 
 import static com.codeborne.selenide.Selenide.back;
@@ -94,7 +92,7 @@ public class Tests extends BaseTest {
     @Test
     @Feature("Tabs")
     @DisplayName("Check the header on activity custom screen")
-    void activityCustomTest() {
+    void activityCustomHeaderTest() {
         back();
         String expectedHeader = mainScreen
                 .clickOnActivityTab()
@@ -103,5 +101,32 @@ public class Tests extends BaseTest {
                 .getCustomizeHeaderText();
 
         Assertions.assertEquals("Customize",expectedHeader);
+    }
+
+    @Test
+    @Feature("Tabs")
+    @Disabled
+    @DisplayName("Check the switches on activity custom screen")
+    void activityCustomSwitchesTest() {
+        back();
+        ActivityCustomizeScreen screen = mainScreen
+                .clickOnActivityTab()
+                .goToInnerActivityTab()
+                .clickOnCusomizeOption();
+
+        String expectedSpentReadingSwitch = screen.getSpentReadingSwitchText();
+        String expectedReadingInsightsSwitch = screen.getSpentReadingSwitchText();
+        String expectedEditingInsightsSwitch = screen.getEditingInsightsSwitchText();
+        String expectedTimeImpactSwitch = screen.getAllTimeImpactSwitchText();
+        String expectedGameStatsSwitch = screen.getGameStatsSwitchText();
+        String expectedTimelineBehaviorSwitch = screen.getTimelineBehaviorSwitchText();
+
+        Assertions.assertEquals("Time spent reading", expectedSpentReadingSwitch);
+        Assertions.assertEquals("Reading insights", expectedReadingInsightsSwitch);
+        Assertions.assertEquals("Editing insights", expectedEditingInsightsSwitch);
+        Assertions.assertEquals("All time impact", expectedTimeImpactSwitch);
+        Assertions.assertEquals("Game stats", expectedGameStatsSwitch);
+        Assertions.assertEquals("Timeline of behavior", expectedTimelineBehaviorSwitch);
+
     }
 }
