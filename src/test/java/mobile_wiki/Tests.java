@@ -1,5 +1,6 @@
 package mobile_wiki;
 
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -9,12 +10,12 @@ import wikipages.MainScreen;
 import static com.codeborne.selenide.Selenide.back;
 
 
-@Tag("mobile_wiki")
 public class Tests extends BaseTest {
 
     MainScreen mainScreen = new MainScreen();
 
     @Test
+    @Feature("Search line")
     @DisplayName("Check the result isn't empty")
     void searchEmptyTest() {
         back();
@@ -27,6 +28,7 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Feature("Tabs")
     @DisplayName("Check the header of the tab 'saved' ")
     void savedTabTestPOM() {
         back();
@@ -38,6 +40,7 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Feature("Tabs")
     @DisplayName("Check the header of the tab 'settings' ")
     void savedSettingsTestPOM() {
         back();
@@ -50,6 +53,7 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Feature("Settings switches")
     @DisplayName("Check switch 'show link previews' ")
     void showPreviewTestPOM() {
         back();
@@ -62,6 +66,7 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Feature("Settings switches")
     @DisplayName("Check switch 'prefer offline' ")
     void preferOfflineTestPOM() {
         back();
