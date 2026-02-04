@@ -3,17 +3,19 @@ package wikipages;
 import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class ActivityCustomizeScreen {
 
     private SelenideElement customizeHeader = $(AppiumBy.xpath("//android.widget.TextView[@text='Customize']")),
-            spentReadingSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text=Time spent reading]")),
-            readingInsightsSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text=Reading insights]")),
-            editingInsightsSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text=Editing insights]")),
-            allTimeImpactSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text=All time impact]")),
-            gameStatsSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text=Game stats]")),
-            timelineBehaviorSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text=Timeline of behavior]"));
+            spentReadingSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text='Time spent reading']")),
+            readingInsightsSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text='Reading insights']")),
+            editingInsightsSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text='Editing insights']")),
+            allTimeImpactSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text='All time impact']")),
+            gameStatsSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text='Game stats']")),
+            timelineBehaviorSwitch = $(AppiumBy.xpath("//android.widget.TextView[@text='Timeline of behavior']"));
 
 
 
@@ -43,5 +45,39 @@ public class ActivityCustomizeScreen {
 
     public String getTimelineBehaviorSwitchText() {
         return timelineBehaviorSwitch.getText();
+    }
+
+    public boolean areAllSwitchTextsCorrect() {
+        List<String> actualTexts = getAllSwitchTexts();
+        List<String> expectedTexts = getExpectedSwitchTexts();
+        return actualTexts.equals(expectedTexts);
+    }
+
+    /**
+     * Получить список всех текстов switch
+     */
+    private List<String> getAllSwitchTexts() {
+        return List.of(
+                getSpentReadingSwitchText(),
+                getReadingInsightsSwitchText(),
+                getEditingInsightsSwitchText(),
+                getAllTimeImpactSwitchText(),
+                getGameStatsSwitchText(),
+                getTimelineBehaviorSwitchText()
+        );
+    }
+
+    /**
+     * Ожидаемые тексты switch
+     */
+    private List<String> getExpectedSwitchTexts() {
+        return List.of(
+                "Time spent reading",
+                "Reading insights",
+                "Editing insights",
+                "All time impact",
+                "Game stats",
+                "Timeline of behavior"
+        );
     }
 }

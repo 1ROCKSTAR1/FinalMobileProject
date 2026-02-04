@@ -2,7 +2,6 @@ package mobile_wiki;
 
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
-import wikipages.ActivityCustomizeScreen;
 import wikipages.MainScreen;
 
 import static com.codeborne.selenide.Selenide.back;
@@ -97,7 +96,7 @@ public class Tests extends BaseTest {
         String expectedHeader = mainScreen
                 .clickOnActivityTab()
                 .goToInnerActivityTab()
-                .clickOnCusomizeOption()
+                .clickOnCustomizeOption()
                 .getCustomizeHeaderText();
 
         Assertions.assertEquals("Customize",expectedHeader);
@@ -105,28 +104,15 @@ public class Tests extends BaseTest {
 
     @Test
     @Feature("Tabs")
-    @Disabled
     @DisplayName("Check the switches on activity custom screen")
     void activityCustomSwitchesTest() {
         back();
-        ActivityCustomizeScreen screen = mainScreen
+        boolean allSwitchesAreShown = mainScreen
                 .clickOnActivityTab()
                 .goToInnerActivityTab()
-                .clickOnCusomizeOption();
+                .clickOnCustomizeOption()
+                .areAllSwitchTextsCorrect();
 
-        String expectedSpentReadingSwitch = screen.getSpentReadingSwitchText();
-        String expectedReadingInsightsSwitch = screen.getSpentReadingSwitchText();
-        String expectedEditingInsightsSwitch = screen.getEditingInsightsSwitchText();
-        String expectedTimeImpactSwitch = screen.getAllTimeImpactSwitchText();
-        String expectedGameStatsSwitch = screen.getGameStatsSwitchText();
-        String expectedTimelineBehaviorSwitch = screen.getTimelineBehaviorSwitchText();
-
-        Assertions.assertEquals("Time spent reading", expectedSpentReadingSwitch);
-        Assertions.assertEquals("Reading insights", expectedReadingInsightsSwitch);
-        Assertions.assertEquals("Editing insights", expectedEditingInsightsSwitch);
-        Assertions.assertEquals("All time impact", expectedTimeImpactSwitch);
-        Assertions.assertEquals("Game stats", expectedGameStatsSwitch);
-        Assertions.assertEquals("Timeline of behavior", expectedTimelineBehaviorSwitch);
-
+        Assertions.assertTrue(allSwitchesAreShown);
     }
 }

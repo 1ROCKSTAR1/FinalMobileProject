@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ActivityInnerTab {
 
-    private SelenideElement customizeOption = $(AppiumBy.xpath("(//android.widget.LinearLayout[@resource-id='org.wikipedia:id/content'])[1]"));
+    private SelenideElement customizeOption = $(AppiumBy.xpath("//android.widget.TextView[@text='Customize']"));
 
-    public ActivityCustomizeScreen clickOnCusomizeOption() {
+    public ActivityCustomizeScreen clickOnCustomizeOption() {
         customizeOption.click();
         return new ActivityCustomizeScreen();
     }
