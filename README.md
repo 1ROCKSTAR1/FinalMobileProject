@@ -1,5 +1,28 @@
 # 🎯 Final Mobile Project
 
+<h1>Test automation project for <a target="_blank" href="https://en.wikipedia.org/wiki/Main_Page"> Wikipedia.com </a> </h1>
+
+<p align="center">
+<img src="images/Wikipedia_Puzzle_Globe.png"  >
+</p>
+
+## About Wikipedia
+Wikipedia is a multilingual, open-source online encyclopedia with free content, maintained and written by volunteers—"Wikipedians"—through open collaboration and using the MediaWiki software (website) and a wiki-based editing system. Wikipedia is the largest and most widely read reference work, as well as the most comprehensive encyclopedia ever created. As of May 2025, the site was ranked 8th in terms of traffic worldwide, according to SimilarWeb, a web traffic analytics company.<br/>
+
+## Summary:
+
+- [Technologies and tools](#tools)
+- [Test coverage](#cases)
+- [Local run tests](#localrun)
+- [Allure report](#report)
+
+📚 Project's description
+
+A comprehensive **Appium-based automation framework** for testing the Wikipedia mobile application on Android Studio Emulator.
+
+
+## 🛠 Technologies
+
 <a id="tools"></a>
 <div align="center">
 
@@ -34,44 +57,6 @@
 
 </br>
 </br>
-
-## Summary:
-
-- [Technologies and tools](#tools)
-- [Test coverage](#cases)
-- [Local run tests](#localrun)
-- [Allure report](#report)
-
-📚 Project's description
-
-A comprehensive **Appium-based automation framework** for testing the Wikipedia mobile application on Android Studio Emulator.
-
-
-## 🛠 Technologies
-
-Main stack:
-
-![](https://img.shields.io/badge/Java-17-ED8B00?style=flat-square&logo=java&logoColor=white)
-![](https://img.shields.io/badge/Gradle-8.0-02303A?style=flat-square&logo=gradle&logoColor=white)
-![](https://img.shields.io/badge/JUnit-5.9-25A162?style=flat-square&logo=junit5&logoColor=white)
-
-Testing tools:
-
-![](https://img.shields.io/badge/Selenide-7.2-43B02A?style=flat-square&logo=selenium&logoColor=white)
-
-Utilities and libraries:
-
-![](https://img.shields.io/badge/Lombok-1.18-E6B91E?style=flat-square&logo=lombok&logoColor=white)
-![](https://img.shields.io/badge/Allure_Report-2.24-FF6F61?style=flat-square&logo=allure&logoColor=white)
-
-IDE:
-
-![](https://img.shields.io/badge/IntelliJ_IDEA-2024-000000?style=flat-square&logo=intellij-idea&logoColor=white)
-
-CI/CD and management:
-
-![](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
 ## 🚀Framework capabilities:
 
