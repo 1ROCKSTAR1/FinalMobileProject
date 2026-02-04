@@ -4,13 +4,19 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import helpers.Attach;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Dimension;
 import wikipages.MainScreen;
+
+import java.util.Set;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -19,19 +25,19 @@ public class Tests extends BaseBrowserstackTest {
 
     MainScreen mainScreen = new MainScreen();
 
-//    @Test
-//    @Feature("Search line")
-//    @DisplayName("Check the result isn't empty")
-//    void searchEmptyTest() {
-//        back();
-//        boolean actualResult = mainScreen
-//                .clickOnFakeSearchField()
-//                .sendSearchPhraseInRealSearchField("NASCAR")
-//                .checkAllResultsNotEmpty();
-//
-//        Assertions.assertTrue(actualResult);
-//    }
-//
+    @Test
+    @Feature("Search line")
+    @DisplayName("Check the result isn't empty")
+    void searchEmptyTest() {
+        back();
+        boolean actualResult = mainScreen
+                .clickOnFakeSearchField()
+                .sendSearchPhraseInRealSearchField("NASCAR")
+                .checkAllResultsNotEmpty();
+
+        Assertions.assertTrue(actualResult);
+    }
+
 //    @Test
 //    @Feature("Tabs")
 //    @DisplayName("Check the header of the tab 'saved' ")
@@ -123,41 +129,4 @@ public class Tests extends BaseBrowserstackTest {
 //
 //        Assertions.assertTrue(allSwitchesAreShown);
 //    }
-
-    @Test
-    void debugBrowserStackConnection() {
-        // 1. Сделать скриншот
-        //Screenshots.takeScreenShot("debug_initial");
-
-        // 2. Получить page source
-        String pageSource = Selenide.webdriver().driver().source();
-        System.out.println("Page source length: " + pageSource.length());
-
-        // 3. Поискать все видимые элементы
-        ElementsCollection allElements = $$(AppiumBy.xpath("//*"));
-        System.out.println("Total elements found: " + allElements.size());
-
-        // 4. Вывести текст всех видимых элементов
-        allElements.forEach(el -> {
-            if (el.isDisplayed()) {
-                String text = el.getText();
-                String id = el.getAttribute("resource-id");
-                if (text != null && !text.isEmpty()) {
-                    System.out.println("Visible element - Text: '" + text + "', ID: " + id);
-                }
-            }
-        });
-
-        // 5. Попробовать найти конкретные элементы
-        String[] testTexts = {"Saved", "Settings", "Activity", "Search", "More"};
-        for (String text : testTexts) {
-            try {
-                SelenideElement element = $(AppiumBy.xpath("//*[@text='" + text + "']"));
-                System.out.println("Element with text '" + text + "' exists: " + element.exists());
-                System.out.println("Element with text '" + text + "' displayed: " + element.isDisplayed());
-            } catch (Exception e) {
-                System.out.println("Element with text '" + text + "' not found");
-            }
-        }
-    }
 }
