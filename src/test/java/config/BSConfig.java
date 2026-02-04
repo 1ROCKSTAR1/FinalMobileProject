@@ -15,11 +15,11 @@ public interface BSConfig extends Config {
     String browserstackKey();
 
     @Key("browserstack.device")
-    @DefaultValue("Google Pixel 5")
+    @DefaultValue("Google Pixel 8 Pro")
     String browserstackDevice();
 
     @Key("browserstack.os_version")
-    @DefaultValue("11.0")
+    @DefaultValue("14.0")
     String browserstackOsVersion();
 
     @Key("browserstack.app")
