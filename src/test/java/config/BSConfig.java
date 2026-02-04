@@ -3,10 +3,7 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({
-        "classpath:${env}.properties",
-        "classpath:default.properties"
-})
+@Config.Sources("classpath:${config:remote}.properties")
 public interface BSConfig extends Config {
 
     @Key("browserstack.id")
