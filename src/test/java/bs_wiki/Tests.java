@@ -1,13 +1,16 @@
-package mobile_wiki;
+package bs_wiki;
 
 import io.qameta.allure.Feature;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import wikipages.MainScreen;
 
 import static com.codeborne.selenide.Selenide.back;
 
-@Tag("mobile")
-public class Tests extends BaseTest {
+@Tag("remote")
+public class Tests extends BaseBrowserstackTest {
 
     MainScreen mainScreen = new MainScreen();
 
