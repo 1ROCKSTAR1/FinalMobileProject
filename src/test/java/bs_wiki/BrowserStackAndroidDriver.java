@@ -40,7 +40,7 @@ public class BrowserStackAndroidDriver implements WebDriverProvider {
         bstackOptions.put("buildName", "browserstack-build-1");
         bstackOptions.put("sessionName", "first_test");
 
-        bstackOptions.put("appiumVersion", "3.1.2");
+        bstackOptions.put("appiumVersion", "2.0.0");
 
         options.setCapability("platformName", "android");
         options.setCapability("appium:automationName", "uiautomator2");
