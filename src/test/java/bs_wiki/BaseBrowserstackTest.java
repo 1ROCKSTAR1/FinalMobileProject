@@ -36,17 +36,17 @@ public class BaseBrowserstackTest {
 
         try {
 
-            // Проверяем Learn more (быстрая проверка)
+
             if ($(AppiumBy.xpath("//*[@text='Get started']")).isDisplayed()) {
                 $(AppiumBy.xpath("//*[@text='Get started']")).click();
-                // Ждем и нажимаем Skip если появился
+
                 $(AppiumBy.xpath("//*[@text='Skip']"))
                         .shouldBe(visible, Duration.ofSeconds(8))
                         .click();
                 return;
             }
         } catch (Exception e) {
-            // Ничего не делаем - onboarding не обнаружен
+
         }
     }
 
