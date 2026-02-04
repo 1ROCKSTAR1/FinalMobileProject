@@ -54,7 +54,7 @@ public class BrowserStackAndroidDriver implements WebDriverProvider {
         options.setCapability("appium:newCommandTimeout", 300);
 
         try {
-            URL url = new URL("https://hub.browserstack.com/wd/hub");
+            URL url = new URL(config.browserstackRemoteUrl());
             System.out.println("Connecting to: " + url);
             return new AndroidDriver(url, options);
         } catch (MalformedURLException e) {
