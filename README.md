@@ -14,6 +14,7 @@ Wikipedia is a multilingual, open-source online encyclopedia with free content, 
 - [Technologies and tools](#tools)
 - [Test coverage](#cases)
 - [Local run tests](#localrun)
+- [Remote run tests](#remoterun)
 - [Allure report](#report)
 
 📚 Project's description
@@ -34,6 +35,7 @@ A comprehensive **Appium-based automation framework** for testing the Wikipedia 
 <img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Allure_Report.svg" width="56" height="56">
 <img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/studio.jpg" width="82" height="95">
 <img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/appium.png" width="56" height="52">
+<img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/browserstack.png" width="56" height="52">
 
 </div>
 
@@ -52,6 +54,7 @@ A comprehensive **Appium-based automation framework** for testing the Wikipedia 
 > | <a href="https://allurereport.org"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Allure_Report.svg" width="64" height="64" alt="Allure Report"/></a>              | `Allure`</br>`Report`  | Tool for visualizing test run results                                                         |                                                            |
 > | <a href="https://developer.android.com/studio"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/studio.jpg" width="64" height="64" alt="Selenoid"/></a>            | `Android Studio`             | IDE for working with the Android platform                                               |
 > | <a href="https://appium.io/"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/appium.png" width="64" height="64" alt="Selenoid"/></a>            | `Appium`             | Open-source project and ecosystem of related software designed to automate the user interface of many application platforms, including mobile (iOS, Android, Tizen), browser (Chrome, Firefox, Safari), and others.                                               |
+> | <a href="https://www.browserstack.com"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/browserstack.png" width="64" height="64" alt="Selenoid"/></a>            | `BrowserStack`             | Cloud-based platform for testing websites and mobile apps, allowing you to use real mobile devices and more.
 > 
 > </details>
 
@@ -86,6 +89,8 @@ Configuration via environment variables
 
 ◾ Check the header on activity custom screen
 
+◾ Check the switches on activity custom screen shown
+
 
 <a id="localrun"></a>
 
@@ -94,6 +99,15 @@ To run tests locally from the IDE or from the terminal, run the following comman
 
 ```
 gradle clean test
+```
+
+<a id="remoterun"></a>
+
+## Running tests remotely
+To run tests remotely from the IDE or from the terminal, run the following command
+
+```
+gradle clean remote_test
 ```
 
 <a id="report"></a>
