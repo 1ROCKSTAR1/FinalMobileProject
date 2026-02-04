@@ -18,41 +18,35 @@ public class BrowserStackAndroidDriver implements WebDriverProvider {
 
     private static final BSConfig config =
             ConfigFactory.create(BSConfig.class, System.getProperties());
+
     @NonNull
     @Override
     public WebDriver createDriver(@NonNull Capabilities capabilities) {
+        // ========== 1. НАСТРОЙКА КАПАБИЛИТИ ==========
         UiAutomator2Options options = new UiAutomator2Options();
 
-        System.out.println("=== BROWSERSTACK CONFIG ===");
-        System.out.println("User: " + config.browserstackId());
-        System.out.println("Key: " + config.browserstackKey());
-        System.out.println("Device: " + config.browserstackDevice());
-        System.out.println("OS Version: " + config.browserstackOsVersion());
-        System.out.println("App: " + config.browserstackApp());
-        System.out.println("==========================");
-
+        // Настройки BrowserStack (все в bstack:options)
         Map<String, Object> bstackOptions = new HashMap<>();
         bstackOptions.put("userName", config.browserstackId());
         bstackOptions.put("accessKey", config.browserstackKey());
-        bstackOptions.put("deviceName", config.browserstackDevice());
-        bstackOptions.put("platformVersion", config.browserstackOsVersion());
+        // Используем устройство из примера BrowserStack, которое точно поддерживается
+        bstackOptions.put("deviceName", config.browserstackDevice()); // Изменили устройство
+        bstackOptions.put("osVersion", config.browserstackOsVersion()); // Исправляем версию ОС для нового устройства
         bstackOptions.put("projectName", "First Java Project");
         bstackOptions.put("buildName", "browserstack-build-1");
         bstackOptions.put("sessionName", "first_test");
 
-        //bstackOptions.put("appiumVersion", "2.0.0");
-
+        // Ключевые capabilities БЕЗ префикса appium:
         options.setCapability("platformName", "Android");
-        options.setCapability("appium:automationName", "uiautomator2");
-        options.setCapability("appium:app", config.browserstackApp());
+        options.setCapability("app", config.browserstackApp()); // Оставляем демо-приложение
 
+        // Appium-специфичные настройки
+        options.setCapability("appium:automationName", "UiAutomator2");
+
+        // Присоединяем настройки BrowserStack
         options.setCapability("bstack:options", bstackOptions);
 
-        options.setCapability("appium:noReset", false);
-        options.setCapability("appium:fullReset", false);
-        options.setCapability("appium:autoGrantPermissions", true);
-        options.setCapability("appium:newCommandTimeout", 300);
-
+        // ========== 2. ИНИЦИАЛИЗАЦИЯ ДРАЙВЕРА ==========
         try {
             URL url = new URL(config.browserstackRemoteUrl());
             System.out.println("Connecting to: " + url);
@@ -64,5 +58,6 @@ public class BrowserStackAndroidDriver implements WebDriverProvider {
             e.printStackTrace();
             throw e;
         }
+
     }
 }
