@@ -19,7 +19,7 @@ public interface BSConfig extends Config {
     String browserstackDevice();
 
     @Key("browserstack.os_version")
-    @DefaultValue("13.0")
+    @DefaultValue("11.0")
     String browserstackOsVersion();
 
     @Key("browserstack.app")
