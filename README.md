@@ -1,6 +1,6 @@
 # 🎯 Final Mobile Project
 
-<h1>Test automation project for <a target="_blank" href="https://en.wikipedia.org/wiki/Main_Page"> Wikipedia mobile app </a> </h1>
+<h1>Test automation project for <a target="_blank" href="https://en.wikipedia.org/wiki/Main_Page](https://github.com/wikimedia/apps-android-wikipedia"> Wikipedia mobile app </a> </h1>
 
 <p align="center">
 <img src="images/Wikipedia_Puzzle_Globe.png"  >
