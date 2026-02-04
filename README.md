@@ -14,7 +14,7 @@ Wikipedia is a multilingual, open-source online encyclopedia with free content, 
 - [Technologies and tools](#tools)
 - [Test coverage](#cases)
 - [Local run tests](#localrun)
-- [Remote run tests](#remoterun)
+- [Jenkins run tests](#remoterun)
 - [Allure report](#report)
 
 📚 Project's description
@@ -95,20 +95,26 @@ Configuration via environment variables
 <a id="localrun"></a>
 
 ## Running tests locally
-To run tests locally from the IDE or from the terminal, run the following command (Before running these tests make sure you have an active emulator with Google pixel 4 (Android 11.0), necessary Android system variables, active Appium server)
+To run tests locally from the IDE or from the terminal, run the following command
 
 ```
-gradle clean test
+gradle clean local_test
 ```
 
-<a id="remoterun"></a>
-
-## Running tests remotely
-To run tests remotely from the IDE or from the terminal, run the following command
+To run tests on Browserstack from the IDE or from the terminal, you need to run the following command
 
 ```
 gradle clean remote_test
 ```
+
+<a id="remoterun"></a>
+
+## Run tests in [Jenkins](https://jenkins.autotests.cloud/job/Final_mobile_test/)
+To run tests in Jenkins, you need to click the 'Build now'
+
+<p align="center">
+<img src="images/jenkins.png">
+</p>
 
 <a id="report"></a>
 
