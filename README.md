@@ -86,6 +86,8 @@ Configuration via environment variables
 
 ◾ Check the header on activity custom screen
 
+◾ Check the switches on activity custom screen shown
+
 
 <a id="localrun"></a>
 
