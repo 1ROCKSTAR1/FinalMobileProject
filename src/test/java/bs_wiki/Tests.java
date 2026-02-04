@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import wikipages.MainScreen;
 
-import static com.codeborne.selenide.Selenide.*;
-
 @Tag("remote")
 public class Tests extends BaseBrowserstackTest {
 
