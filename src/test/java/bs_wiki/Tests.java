@@ -29,7 +29,7 @@ public class Tests extends BaseBrowserstackTest {
     @Feature("Search line")
     @DisplayName("Check the result isn't empty")
     void searchEmptyTest() {
-        back();
+        //back();
         boolean actualResult = mainScreen
                 .clickOnFakeSearchField()
                 .sendSearchPhraseInRealSearchField("NASCAR")
