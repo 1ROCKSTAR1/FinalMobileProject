@@ -15,11 +15,11 @@ public interface BSConfig extends Config {
     String browserstackKey();
 
     @Key("browserstack.device")
-    @DefaultValue("Samsung Galaxy S22 Ultra")
+    @DefaultValue("Google Pixel 4")
     String browserstackDevice();
 
     @Key("browserstack.os_version")
-    @DefaultValue("12.0")
+    @DefaultValue("11.0")
     String browserstackOsVersion();
 
     @Key("browserstack.app")
