@@ -23,7 +23,7 @@ public interface BSConfig extends Config {
     String browserstackOsVersion();
 
     @Key("browserstack.app")
-    @DefaultValue("bs://c700ce60cf13ae523bd3a01a51b8fc7bdcb8b5f0")
+    @DefaultValue("bs://sample.app")
     String browserstackApp();
 
     @Key("browserstack.remote.url")
