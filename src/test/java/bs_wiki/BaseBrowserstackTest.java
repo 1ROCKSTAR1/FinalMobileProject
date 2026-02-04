@@ -5,12 +5,16 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.BSConfig;
 import helpers.Attach;
+import io.appium.java_client.AppiumBy;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class BaseBrowserstackTest {
@@ -29,6 +33,21 @@ public class BaseBrowserstackTest {
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open(); // обязательный костыль №2
+
+        try {
+
+            // Проверяем Learn more (быстрая проверка)
+            if ($(AppiumBy.xpath("//*[@text='Get started']")).isDisplayed()) {
+                $(AppiumBy.xpath("//*[@text='Get started']")).click();
+                // Ждем и нажимаем Skip если появился
+                $(AppiumBy.xpath("//*[@text='Skip']"))
+                        .shouldBe(visible, Duration.ofSeconds(8))
+                        .click();
+                return;
+            }
+        } catch (Exception e) {
+            // Ничего не делаем - onboarding не обнаружен
+        }
     }
 
     @AfterEach
