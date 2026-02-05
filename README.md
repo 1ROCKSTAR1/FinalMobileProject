@@ -21,7 +21,7 @@ Wikipedia is a multilingual, open-source online encyclopedia with free content, 
 
 📚 Project's description
 
-A comprehensive **Appium-based automation framework** for testing the Wikipedia mobile application on Android Studio Emulator.
+A comprehensive **Appium-based automation framework** for testing the Wikipedia mobile application on Android Studio Emulator (locally) and on Browserstack platform (remotely).
 
 
 ## 🛠 Technologies
