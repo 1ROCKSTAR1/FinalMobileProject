@@ -16,6 +16,8 @@ Wikipedia is a multilingual, open-source online encyclopedia with free content, 
 - [Local run tests](#localrun)
 - [Jenkins run tests](#remoterun)
 - [Allure report](#report)
+- [Telegram notifications](#telegram)
+- [Run tests video example from Selenoid](#video)
 
 📚 Project's description
 
@@ -125,4 +127,22 @@ To run tests in Jenkins, you need to click the 'Build now'
 
 <p align="center">
 <img src="images/allure.png">
+</p>
+
+<a id="telegram"></a>
+## Telegram notifications
+
+Following each test run, Jenkins sends a message to Telegram. The message contains information about the run and a chart with test statistics.
+
+<p align="center">
+<img src="images/telegram.png" width="400">
+</p>
+
+<a id="video"></a>
+
+## Video with an example of running tests in Selenoid
+In the Allure report, each test includes a screenshot of the last step and a video of the test being run. Examples of such videos:
+
+<p align="center">
+<img src="images/selenoid.gif " width="1000">
 </p>
