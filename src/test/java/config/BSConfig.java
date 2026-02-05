@@ -7,11 +7,11 @@ import org.aeonbits.owner.Config;
 public interface BSConfig extends Config {
 
     @Key("browserstack.id")
-    @DefaultValue("idol_LmFU3s")
+    @DefaultValue("lex_7EZofB")
     String browserstackId();
 
     @Key("browserstack.key")
-    @DefaultValue("Q4pekLModwXLJYxWEYa3")
+    @DefaultValue("BxJxFbAzwVkYQ3s3sW1F")
     String browserstackKey();
 
     @Key("browserstack.device")
@@ -23,7 +23,7 @@ public interface BSConfig extends Config {
     String browserstackOsVersion();
 
     @Key("browserstack.app")
-    @DefaultValue("bs://sample.app")
+    @DefaultValue("bs://3f7310b8b0dd1b5b7c81edbe97047a5ea3614f7c")
     String browserstackApp();
 
     @Key("browserstack.remote.url")

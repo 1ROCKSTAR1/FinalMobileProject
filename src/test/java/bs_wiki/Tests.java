@@ -1,82 +1,80 @@
 package bs_wiki;
 
+import bs_wiki.tabs_and_pages.MainBsScreen;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import wikipages.ArticleScreen;
-import wikipages.MainScreen;
-
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static io.appium.java_client.AppiumBy.*;
+import static com.codeborne.selenide.Selenide.*;
 
 @Tag("remote")
 public class Tests extends BaseBrowserstackTest {
 
-    MainScreen mainScreen = new MainScreen();
-    ArticleScreen articlePage = new ArticleScreen();
+    MainBsScreen mainBsScreen = new MainBsScreen();
 
     @Test
-    @DisplayName("Первый мобильный тест на мобилку с appium+selenide")
-    void successfulSearchTestComplete() {
-
-        $(accessibilityId("Search Wikipedia")).click();
-        $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Appium");
-
-        $$(id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(sizeGreaterThan(0));
-    }
-
-    @Test
-    @DisplayName("Мобильный тест на мобилку с appium+selenide (НЕГАТИВНЫЙ)")
-    void successfulSearchTestCompleteNegative() {
-
-        $(accessibilityId("Search Wikipedia")).click();
-        $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys(";lkj;lkhjljkgyy");
-
-        $$(id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(sizeGreaterThan(0));
-    }
-
-    @Test
-    @DisplayName("Мобильный тест на мобилку с appium+selenide (поиск статьи)")
-    void successfulSearchTestArticle() {
-
-        $(accessibilityId("Search Wikipedia")).click();
-        $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("NASCAR");
-
-        $$(id("org.wikipedia.alpha:id/page_list_item_title"))
-                .get(0)
-                .click();
-
-        $(className("android.widget.TextView")).shouldHave(text("NASCAR"));
-    }
-
-    @Test
-    @DisplayName("Мобильный тест на POM. Проверка что результат не пустой")
-    void searchEmptyTest() {
-
-        boolean actualResult = mainScreen
+    @Feature("Searchline")
+    @DisplayName("Check search results aren't empty ")
+    public void checkSearchResults() {
+        back();
+        boolean resultsAreShown = mainBsScreen
                 .clickOnFakeSearchField()
-                .sendSearchPhraseInRealSearchField("NASCAR")
+                .fillRealSearchField("NASCAR")
                 .checkAllResultsNotEmpty();
 
-        Assertions.assertTrue(actualResult);
+        Assertions.assertTrue(resultsAreShown);
     }
 
     @Test
-    @DisplayName("Мобильный тест на POM. Проверка что статья содержит искомое значение")
-    void searchArticleTest() {
+    @Feature("Headers")
+    @DisplayName("Check the header of the tab 'saved' ")
+    public void savedHeaderTest() {
+        back();
+        String expectedHeader = mainBsScreen
+                .clickOnSavedTab()
+                .getSavedHeader();
 
-        mainScreen
-                .clickOnFakeSearchField()
-                .sendSearchPhraseInRealSearchField("NASCAR")
-                .clickOnFirstItem();
+        Assertions.assertEquals("Saved",expectedHeader);
+    }
 
-        String actualArticleHeader = articlePage
-                .getArticleHeader();
+    @Test
+    @Feature("Headers")
+    @DisplayName("Check the header of the tab 'settings' ")
+    public void settingsHeaderTest() {
+        back();
+        String expectedHeader = mainBsScreen
+                .clickOnMoreTab()
+                .clickOnSettingsItem()
+                .getSettingsHeader();
 
-        Assertions.assertEquals("NASCAR", actualArticleHeader);
+        Assertions.assertEquals("Settings",expectedHeader);
+    }
+
+    @Test
+    @Feature("Switches")
+    @DisplayName("Check the switch preview is on ")
+    public void showPreviewSwitchTest() {
+        back();
+        boolean previewSwitchIsOn = mainBsScreen
+                .clickOnMoreTab()
+                .clickOnSettingsItem()
+                .checkPreviewSwitch();
+
+        Assertions.assertTrue(previewSwitchIsOn);
+    }
+
+    @Test
+    @Feature("Switches")
+    @DisplayName("Check the switch shareData is on")
+    public void shareDataSwitchTest() {
+        back();
+        boolean shareDataSwitchIsOn = mainBsScreen
+                .clickOnMoreTab()
+                .clickOnSettingsItem()
+                .scrollToShareData()
+                .checkShareDataSwitch();
+
+        Assertions.assertTrue(shareDataSwitchIsOn);
     }
 }

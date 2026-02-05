@@ -26,7 +26,7 @@ public class BaseBrowserstackTest {
     static void beforeAll() {
         Configuration.browser = BrowserStackAndroidDriver.class.getName();
         Configuration.browserSize = null; // обязательный костыль №1
-        Configuration.timeout = 30000;
+        Configuration.timeout = 15000;
     }
 
     @BeforeEach
