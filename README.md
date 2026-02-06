@@ -17,7 +17,7 @@ Wikipedia is a multilingual, open-source online encyclopedia with free content, 
 - [Jenkins run tests](#remoterun)
 - [Allure report](#report)
 - [Telegram notifications](#telegram)
-- [Run tests video example from Selenoid](#video)
+- [Run tests video example from Browserstack](#video)
 
 📚 Project's description
 
