@@ -3,7 +3,7 @@
 <h1>Test automation project for <a target="_blank" href="https://en.wikipedia.org/wiki/Main_Page](https://github.com/wikimedia/apps-android-wikipedia"> Wikipedia mobile app </a> </h1>
 
 <p align="center">
-<img src="images/Wikipedia_Puzzle_Globe.png"  >
+<img src="images/Wikipedia_Puzzle_Globe.png" width="500" >
 </p>
 
 ## About Wikipedia
@@ -140,9 +140,9 @@ Following each test run, Jenkins sends a message to Telegram. The message contai
 
 <a id="video"></a>
 
-## Video with an example of running tests in Selenoid
+## Video with an example of running tests in Browserstack
 In the Allure report, each test includes a screenshot of the last step and a video of the test being run. Examples of such videos:
 
 <p align="center">
-<img src="images/selenoid.gif " width="1000">
+<img src="images/selenoid.gif " width="400">
 </p>
