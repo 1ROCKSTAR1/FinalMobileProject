@@ -135,7 +135,7 @@ To run tests in Jenkins, you need to click the 'Build now'
 Following each test run, Jenkins sends a message to Telegram. The message contains information about the run and a chart with test statistics.
 
 <p align="center">
-<img src="images/telegram.png" width="400">
+<img src="images/tg.png" width="400">
 </p>
 
 <a id="video"></a>
